@@ -1,0 +1,20 @@
+---
+title: How to add background image to a container in Flutter?
+publish_date: 2022-11-23
+---
+
+Use `decoration` property of container -> `BoxDecoration` with `ImageProvider`.
+
+```dart
+Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/bg.png"),
+            // To add network image
+            // image: NetworkImage(_imageURL),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Text('Container with background image!'),
+      ),
+```

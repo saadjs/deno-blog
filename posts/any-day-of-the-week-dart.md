@@ -1,0 +1,26 @@
+---
+title: How to get any day of the week in Dart and Flutter
+publish_date: 2022-11-12
+---
+
+User `DateTime`'s `weekday` getter.
+
+- 1 for Monday
+- 2 for Tuesday
+  ...
+- 7 for Sunday
+
+```dart
+// Today
+DateTime now = DateTime.now();
+
+// Get most recent Monday
+DateTime mon = DateTime(now.year, now.month, now.day - (now.weekday - 1));
+
+// Get most recent Wednesday
+DateTime wed = DateTime(now.year, now.month, now.day - (now.weekday - 3));
+
+// Get Sunday
+DateTime sun = DateTime(now.year, now.month, now.day - (now.weekday - 7));
+
+```
