@@ -120,3 +120,43 @@ for i, c in enumerate(name,start=1):
 # 3->a
 # 4->d
 ```
+
+## String `strip()`
+
+`strip()` method removes any leading and trailing whitespaces from a given string.
+
+```python
+text = "  Hello, World     "
+stripped = text.strip()
+
+print(stripped) # "Hello, World"
+```
+
+## String `isalnum()`
+
+`isalnum()` method returns True if all characters in the string are alphanumeric (either alphabets or numbers). If not, it returns False.
+
+```python
+print(" ".isalnum()) # False
+
+x = "123"
+print(x.isalnum()) # True
+
+y = "hello1"
+print(y.isalnum()) # True
+```
+
+## Create Positive & Negative Infinity
+
+```python
+# Positive
+x = float('inf')
+
+# Negative
+y = -float('inf')
+
+# OR using math module
+import math
+x = math.inf
+y = -math.inf
+```
