@@ -7,37 +7,37 @@ Let's say we have hello-world express app, which uses middleware to log time wit
 
 ```js
 // app.js File
-const express = require('express')
-const app = express()
-const logTime = require('./middleware')
+const express = require("express");
+const app = express();
+const logTime = require("./middleware");
 
-app.use(logTime) // <=== Log time
+app.use(logTime); // <=== Log time
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+app.get("/", (req, res) => {
+    res.send("Hello World!");
+});
 
-module.exports = app
+module.exports = app;
 ```
 
 ```js
 // middleware.js
 const logTime = (req, res, next) => {
-  console.log('Time:', new Date().toLocaleString())
-  next()
-}
+    console.log("Time:", new Date().toLocaleString());
+    next();
+};
 
-module.exports = logTime
+module.exports = logTime;
 ```
 
 ```js
 // server.js File
-const port = 8080
-const app = require('./app')
+const port = 8080;
+const app = require("./app");
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+    console.log(`Example app listening on port ${port}`);
+});
 ```
 
 When app is run and `get` request made on `http:localhost:8080`, Time would be logged in terminal.
@@ -46,21 +46,21 @@ When app is run and `get` request made on `http:localhost:8080`, Time would be l
 
 ```js
 // app.test.js
-const request = require('supertest')
-const app = require('./app')
-const logTime = require('./middleware')
+const request = require("supertest");
+const app = require("./app");
+const logTime = require("./middleware");
 
-jest.mock('./middleware', () =>
-  jest.fn((_, __, next) => {
-    console.log('🤩 Log from mock function')
-    return next()
-  })
-)
+jest.mock("./middleware", () =>
+    jest.fn((_, __, next) => {
+        console.log("🤩 Log from mock function");
+        return next();
+    })
+);
 
-test('should mock middleware func', async () => {
-  await request(app).get('/').expect(200)
-  expect(logTime).toBeCalledTimes(1)
-})
+test("should mock middleware func", async () => {
+    await request(app).get("/").expect(200);
+    expect(logTime).toBeCalledTimes(1);
+});
 ```
 
 After the test is run, time won't be logged, but we'd see `🤩 Log from mock function` in terminal:

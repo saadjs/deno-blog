@@ -20,19 +20,19 @@ When we require module in tests, calling `jest.mock('./moduleName')` is **requir
 ```js
 // sum.js
 module.exports = {
-  sum: (a, b) => a + b,
-}
+    sum: (a, b) => a + b,
+};
 
 // sum.test.js
-const { sum } = require('./Module')
+const { sum } = require("./Module");
 
-jest.mock('./Module', () => ({
-  sum: () => 'mocked implementation',
-}))
+jest.mock("./Module", () => ({
+    sum: () => "mocked implementation",
+}));
 
-test('should use the mocked implementation', () => {
-  expect(sum()).toEqual('mocked implementation')
-})
+test("should use the mocked implementation", () => {
+    expect(sum()).toEqual("mocked implementation");
+});
 ```
 
 ```shell
@@ -55,17 +55,17 @@ For default export, `jest.mock` syntax will look slightly different.
 
 ```js
 // sum.js
-const sum = (a, b) => a + b
-module.exports = sum
+const sum = (a, b) => a + b;
+module.exports = sum;
 
 // sum.test.js
-const sum = require('./Sum')
+const sum = require("./Sum");
 
-jest.mock('./Sum', () => () => 'mocked implementation')
+jest.mock("./Sum", () => () => "mocked implementation");
 
-test('should use the mocked implementation', () => {
-  expect(sum()).toEqual('mocked implementation')
-})
+test("should use the mocked implementation", () => {
+    expect(sum()).toEqual("mocked implementation");
+});
 ```
 
 And will get the same result in the terminal:
@@ -88,19 +88,19 @@ Ran all test suites matching /Sum.test.js/i.
 ```js
 // hello.js
 export function sayHello(name) {
-  return `Hello, ${name}!`
+    return `Hello, ${name}!`;
 }
 
 // hello.test.js
-import { sayHello } from './hello'
+import { sayHello } from "./hello";
 
-jest.mock('./hello', () => ({
-  sayHello: (name) => `mocked`,
-}))
+jest.mock("./hello", () => ({
+    sayHello: (name) => `mocked`,
+}));
 
-test('Mock implementation test', () => {
-  expect(sayHello()).toBe(`mocked`)
-})
+test("Mock implementation test", () => {
+    expect(sayHello()).toBe(`mocked`);
+});
 
 /*
 PASS ./sum.test.js
@@ -116,33 +116,33 @@ Time: 0.307 s, estimated 1 s
 ## Mocking default import
 
 ```js
-import getWeather from './weather'
+import getWeather from "./weather";
 
 // weather.test.js
-jest.mock('./weather', () => () => 'Sunny 47F')
+jest.mock("./weather", () => () => "Sunny 47F");
 ```
 
 ## Mocking only the named import (and leaving other imports unmocked)
 
 ```js
-import { getWeather, getTemperature, getWindSpeed } from './weather'
+import { getWeather, getTemperature, getWindSpeed } from "./weather";
 
 // weather.test.js
-jest.mock('./weather', () => ({
-  ...jest.requireActual('./weather'),
-  getTemperature: () => 25,
-  // getWeather and getWindSpeed will return their true values
-}))
+jest.mock("./weather", () => ({
+    ...jest.requireActual("./weather"),
+    getTemperature: () => 25,
+    // getWeather and getWindSpeed will return their true values
+}));
 ```
 
 ## Mocking a default and named imports
 
 ```js
-import getCityName, { getPopulation } from './city'
+import getCityName, { getPopulation } from "./city";
 
-jest.mock('./city', () => ({
-  __esModule: true,
-  default: () => 'New York City',
-  getPopulation: () => 8_550_405,
-}))
+jest.mock("./city", () => ({
+    __esModule: true,
+    default: () => "New York City",
+    getPopulation: () => 8_550_405,
+}));
 ```

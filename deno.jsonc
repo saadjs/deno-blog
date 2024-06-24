@@ -1,17 +1,15 @@
 {
-  "tasks": {
-    "dev": "deno run --allow-net --allow-read --allow-env --watch main.tsx --dev",
-    "serve": "deno run --allow-net --allow-read --allow-env --no-check main.tsx"
-  },
-  "imports": {
-    "blog": "https://deno.land/x/blog@0.7.0/blog.tsx"
-  },
-  "deploy": {
-    "project": "23a66c69-4a07-472d-aa33-3f2711227263",
-    "exclude": [
-      "**/node_modules"
-    ],
-    "include": [],
-    "entrypoint": "main.tsx"
-  }
+    "tasks": {
+        "dev": "deno run --allow-net --allow-read --allow-env --watch main.tsx --dev",
+        "serve": "deno run --allow-net --allow-read --allow-env --no-check main.tsx"
+    },
+    "imports": {
+        "blog": "https://deno.land/x/blog@0.7.0/blog.tsx"
+    },
+    "deploy": {
+        "project": "23a66c69-4a07-472d-aa33-3f2711227263",
+        "exclude": ["**/node_modules"],
+        "include": [],
+        "entrypoint": "main.tsx"
+    }
 }

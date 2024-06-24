@@ -8,27 +8,27 @@ publish_date: 2024-06-21
 ```js
 // File: /app/api/route.js
 export function GET() {
-  const responseStream = new TransformStream()
+    const responseStream = new TransformStream();
 
-  const writer = responseStream.writable.getWriter()
+    const writer = responseStream.writable.getWriter();
 
-  let i = 1
-  const interval = setInterval(() => {
-    writer.write(JSON.stringify({ message: `Hello ${i}` }) + '\n\n')
-    i++
-    if (i === 11) {
-      clearInterval(interval)
-      writer.close()
-    }
-  }, 500)
+    let i = 1;
+    const interval = setInterval(() => {
+        writer.write(JSON.stringify({ message: `Hello ${i}` }) + "\n\n");
+        i++;
+        if (i === 11) {
+            clearInterval(interval);
+            writer.close();
+        }
+    }, 500);
 
-  return new Response(responseStream.readable, {
-    headers: {
-      'Content-Type': 'text/event-stream',
-      Connection: 'keep-alive',
-      'Cache-Control': 'no-cache, no-transform',
-    },
-  })
+    return new Response(responseStream.readable, {
+        headers: {
+            "Content-Type": "text/event-stream",
+            Connection: "keep-alive",
+            "Cache-Control": "no-cache, no-transform",
+        },
+    });
 }
 ```
 
@@ -40,57 +40,57 @@ The data is sent as a stream using the `TransformStream` API.
 
 ```js
 // File: /app/page.js
-'use client'
+"use client";
 
-import { useState } from 'react'
+import { useState } from "react";
 
 export default function Home() {
-  const [log, setLogs] = useState([])
-  const [loading, setLoading] = useState(false)
+    const [log, setLogs] = useState([]);
+    const [loading, setLoading] = useState(false);
 
-  const handleClick = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    try {
-      const response = await fetch('/api')
-      const reader = response.body?.getReader()
-      const decoder = new TextDecoder()
-      let done = false
-      while (!done) {
-        const result = await reader?.read()
-        if (result?.done) {
-          break
+    const handleClick = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        try {
+            const response = await fetch("/api");
+            const reader = response.body?.getReader();
+            const decoder = new TextDecoder();
+            let done = false;
+            while (!done) {
+                const result = await reader?.read();
+                if (result?.done) {
+                    break;
+                }
+                const text = decoder.decode(result?.value, { stream: true });
+                setLogs((prev) => [...prev, text]);
+            }
+            setLogs((prev) => [...prev, "Done ✅"]);
+        } catch (error) {
+            setLogs((prev) => [...prev, "An error occurred ❌"]);
+        } finally {
+            setLoading(false);
         }
-        const text = decoder.decode(result?.value, { stream: true })
-        setLogs((prev) => [...prev, text])
-      }
-      setLogs((prev) => [...prev, 'Done ✅'])
-    } catch (error) {
-      setLogs((prev) => [...prev, 'An error occurred ❌'])
-    } finally {
-      setLoading(false)
-    }
-  }
+    };
 
-  return (
-    <main>
-      <h1>Next.js Streaming Example</h1>
-      <div>
-        {!log.length && (
-          <button onClick={handleClick} disabled={loading}>
-            {loading ? 'Loading...' : 'Click Me!'}
-          </button>
-        )}
-      </div>
-      <div>{log && log.map((l, i) => <p key={`log-${i}`}>{l}</p>)}</div>
+    return (
+        <main>
+            <h1>Next.js Streaming Example</h1>
+            <div>
+                {!log.length && (
+                    <button onClick={handleClick} disabled={loading}>
+                        {loading ? "Loading..." : "Click Me!"}
+                    </button>
+                )}
+            </div>
+            <div>{log && log.map((l, i) => <p key={`log-${i}`}>{l}</p>)}</div>
 
-      {log.length > 0 && !loading && (
-        <div>
-          <button onClick={() => setLogs([])}>Clear logs</button>
-        </div>
-      )}
-    </main>
-  )
+            {log.length > 0 && !loading && (
+                <div>
+                    <button onClick={() => setLogs([])}>Clear logs</button>
+                </div>
+            )}
+        </main>
+    );
 }
 ```
 

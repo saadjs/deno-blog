@@ -3,6 +3,8 @@ title: "Python: useful built-in Functions"
 publish_date: 2023-08-17
 ---
 
+## Commonly used built-in Python Functions
+
 | Calling Syntax             | Description                                                        |
 | -------------------------- | ------------------------------------------------------------------ |
 | `abs(x)`                   | Return the absolute value of a number.                             |

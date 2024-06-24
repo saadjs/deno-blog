@@ -20,7 +20,7 @@ Let's look at few examples:
 Example 1:
 
 ```js
-let result = false || true // result = true
+let result = false || true; // result = true
 ```
 
 No real advantage here, so far so good!
@@ -28,7 +28,7 @@ No real advantage here, so far so good!
 Example 2:
 
 ```js
-let result = '' || 'default' // result = ?
+let result = "" || "default"; // result = ?
 ```
 
 Since an empty string is `falsy`, `result = "default"` which may not be intended!
@@ -37,20 +37,20 @@ Example 3:
 
 ```js
 const item = {
-  price: 10,
-  discountedPrice: 4.99,
-}
-const price = item.discountedPrice || item.price // price = 4.99
+    price: 10,
+    discountedPrice: 4.99,
+};
+const price = item.discountedPrice || item.price; // price = 4.99
 ```
 
 But
 
 ```js
 const item2 = {
-  price: 10,
-  discountedPrice: 0,
-}
-const price2 = item2.discountedPrice || item2.price // price2 = 10 🤷🏻
+    price: 10,
+    discountedPrice: 0,
+};
+const price2 = item2.discountedPrice || item2.price; // price2 = 10 🤷🏻
 ```
 
 Item2's price should be `0`, item2 should be FREE, why is it `10`?
@@ -66,13 +66,13 @@ The nullish coalescing operator uses the right value ONLY when left is `null` or
 So all of the weird things from above examples are automatically taken care of.
 
 ```js
-let result = '' ?? 'default' // result = ""
+let result = "" ?? "default"; // result = ""
 
 const item2 = {
-  price: 10,
-  discountedPrice: 0,
-}
-const price2 = item2.discountedPrice ?? item2.price // price = 0 🎉
+    price: 10,
+    discountedPrice: 0,
+};
+const price2 = item2.discountedPrice ?? item2.price; // price = 0 🎉
 ```
 
 In the world of JavaScript, mastering the little things can make a big difference. While understanding the nuances between `||` (Logical OR) and `??` (Nullish Coalescing) operators may not change your life, it can certainly help minimize bugs.

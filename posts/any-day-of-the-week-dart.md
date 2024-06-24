@@ -5,10 +5,10 @@ publish_date: 2022-11-12
 
 User `DateTime`'s `weekday` getter.
 
-- 1 for Monday
-- 2 for Tuesday
-  ...
-- 7 for Sunday
+-   1 for Monday
+-   2 for Tuesday
+    ...
+-   7 for Sunday
 
 ```dart
 // Today

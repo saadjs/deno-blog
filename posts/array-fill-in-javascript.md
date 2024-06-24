@@ -10,13 +10,13 @@ This means that if you call Array.prototype.fill(value) and value is an object, 
 For example, consider the following code:
 
 ```js
-let arr = new Array(5).fill([])
+let arr = new Array(5).fill([]);
 
-console.log(arr) // [ [], [], [], [], [] ]
+console.log(arr); // [ [], [], [], [], [] ]
 
-arr[0].push(1)
+arr[0].push(1);
 
-console.log(arr) // [ [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ] ]
+console.log(arr); // [ [ 1 ], [ 1 ], [ 1 ], [ 1 ], [ 1 ] ]
 ```
 
 🚨 This can be a source of bugs if you are not aware of the behavior of Array.fill with objects.

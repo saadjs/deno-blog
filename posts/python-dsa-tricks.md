@@ -5,7 +5,7 @@ publish_date: 2023-10-04
 
 ## `collections.Counter()`
 
-- Elements as keys, and their counts are stored as values.
+-   Elements as keys, and their counts are stored as values.
 
 ```python
 nums = [1,1,2,3,4,5,3,2,3,4,2,1,2,3]
@@ -84,21 +84,21 @@ print(d['key1'])  # Output: ['value1', 'value2']
 
 1. Creating an empty list
 
-   `l = [None] * 10`
+    `l = [None] * 10`
 
 2. With zeros
 
-   `x = [0] * 5`
+    `x = [0] * 5`
 
 ## `collections.deque([iterable, [maxlen]])` - Doubly Ended Queue
 
-- For faster `O(1)` append and pop operations on both ends
+-   For faster `O(1)` append and pop operations on both ends
 
 ```python
 queue = collections.deque([1, 2, 3])
 
 ## Operations
-queue.append(4) 
+queue.append(4)
 queue.appendleft(0)
 
 queue.pop() # Returns 4
@@ -106,6 +106,7 @@ queue.popleft() # Returns 0
 ```
 
 ## `enumerate` with optional `start` argument
+
 Specify the starting index for the keys (indexes) in the enumerate object
 
 ```python

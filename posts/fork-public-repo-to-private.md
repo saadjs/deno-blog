@@ -31,17 +31,17 @@ git clone git@github.com:saadjs/private-repo.git && cd $_
 
 **Optional:**
 
-- To pull new changes made to the original public repo:
+-   To pull new changes made to the original public repo:
 
-  ```
-  git remote add public git@github.com:Username/cool-public-repo.git
-  ```
+    ```
+    git remote add public git@github.com:Username/cool-public-repo.git
+    ```
 
-  Create a new branch to pull the changes
+    Create a new branch to pull the changes
 
-  ```
-  git checkout -b new-changes-from-public
-  git pull public main
-  git push --set-upstream origin new-changes-from-public
-  # or merge into to main & push to origin main
-  ```
+    ```
+    git checkout -b new-changes-from-public
+    git pull public main
+    git push --set-upstream origin new-changes-from-public
+    # or merge into to main & push to origin main
+    ```
