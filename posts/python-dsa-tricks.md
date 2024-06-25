@@ -3,6 +3,10 @@ title: List of Useful Python Tricks for Solving Coding Questions
 publish_date: 2023-10-04
 ---
 
+Python is great language choice when solving DSA questions because of its english-like syntax, rich set of built-in libraries.
+
+Here is list of some helpful methods and tricks when solving DSA questions. 
+
 ## `collections.Counter()`
 
 -   Elements as keys, and their counts are stored as values.

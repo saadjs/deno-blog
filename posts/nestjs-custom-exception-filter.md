@@ -3,9 +3,11 @@ title: Microservices and Custom exception filter in NestJS
 publish_date: 2023-03-25
 ---
 
--   Nest offers a default exceptions layer to handle unhandled exceptions in an application. Global microservice exception filters aren't enabled by default when using a hybrid application.
--   In the case of an error occurring on a microservice, it is recommended to use `RpcException` instead of `HttpException`.
--   To catch RpcException on the client side, implementing "Exception filters" is a good practice. These filters offer greater control over the flow of the application and allow customization of the response returned to the client from the microservice.
+Nest offers a default exceptions layer to handle unhandled exceptions in an application. Global microservice exception filters aren't enabled by default when using a hybrid application.
+
+In the case of an error occurring on a microservice, it is recommended to use `RpcException` instead of `HttpException`.
+
+To catch RpcException on the client side, implementing "Exception filters" is a good practice. These filters offer greater control over the flow of the application and allow customization of the response returned to the client from the microservice.
 
 To create a custom exception filter, extend the `RpcException`:
 

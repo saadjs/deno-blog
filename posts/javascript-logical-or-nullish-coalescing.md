@@ -3,7 +3,7 @@ title: "JavaScript's Defaults: || vs. ??"
 publish_date: 2024-05-13
 ---
 
-When checking out JavaScript code, we will see lots of `||` (Logical OR) but not so many `??` (Nullish Coalescing) operators for setting default values. So what's the real difference between them?
+When checking out JavaScript codebase, we will see lots of `||` (Logical OR) but not so many `??` (Nullish Coalescing) operators for setting default values. So what's the real difference between them?
 
 # Logical OR (`||`)
 
@@ -78,3 +78,5 @@ const price2 = item2.discountedPrice ?? item2.price; // price = 0 🎉
 In the world of JavaScript, mastering the little things can make a big difference. While understanding the nuances between `||` (Logical OR) and `??` (Nullish Coalescing) operators may not change your life, it can certainly help minimize bugs.
 
 Happy Coding!
+
+\- Saad Bash

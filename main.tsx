@@ -1,6 +1,6 @@
 /** @jsx h */
 
-import blog, { ga } from "blog";
+import blog from "blog";
 
 blog({
     author: "Saad Bash",
@@ -14,6 +14,5 @@ blog({
         { title: "GitHub", url: "https://github.com/saadjs" },
         { title: "Linkedin", url: "https://www.linkedin.com/in/saadbash/" },
     ],
-    avatarClass: "rounded-full",
-    middlewares: [ga("GTM-NB6MNN3B")],
+    avatarClass: "rounded-full"
 });
