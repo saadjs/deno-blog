@@ -14,5 +14,5 @@ blog({
         { title: "GitHub", url: "https://github.com/saadjs" },
         { title: "Linkedin", url: "https://www.linkedin.com/in/saadbash/" },
     ],
-    avatarClass: "rounded-full"
+    avatarClass: "rounded-full",
 });

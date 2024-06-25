@@ -10,9 +10,7 @@
     },
     "deploy": {
         "project": "23a66c69-4a07-472d-aa33-3f2711227263",
-        "exclude": [
-            "**/node_modules"
-        ],
+        "exclude": ["**/node_modules"],
         "include": [],
         "entrypoint": "main.tsx"
     }
